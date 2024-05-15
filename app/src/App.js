@@ -12,7 +12,7 @@ function App() {
   const [tentativi, setTentativi] = useState(0);
   const [numero, setNumero] = useState();
   const [input, setInput] = useState("");
-  const [indovino, setIndovino] = useState(false);
+  const [indovino, setIndovino] = useState(0);
 
 
   async function start(){
@@ -39,8 +39,9 @@ function App() {
 
       setTentativi(tentativi+1)
       
+      
       if(input == numero){
-        setIndovino(true);
+        setIndovino(1);
       }
       
     }
@@ -68,6 +69,22 @@ function App() {
         </p>
         <p>
           Numero : {numero}
+        </p>
+        <p>
+          {indovino && 
+            <p>
+              "NUMERO INDOVINATO"
+            </p>
+            
+
+          } 
+          {!indovino &&
+
+            <p> 
+              "RIPROVA"
+              </p>
+
+          }
         </p>
 
       </div>
